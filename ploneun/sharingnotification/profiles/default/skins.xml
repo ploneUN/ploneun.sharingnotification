@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+    <object name="ploneun_sharingnotification"
+        meta_type="Filesystem Directory View"
+        directory="ploneun.sharingnotification:skins/ploneun_sharingnotification"/>
+    <skin-path name="*">
+        <layer name="ploneun_sharingnotification"
+                insert-after="custom"/>
+    </skin-path>
+</object>

@@ -21,5 +21,6 @@
         directory="static"/>
 
     <!-- -*- extra stuff goes here -*- -->
+    <cmf:registerDirectory name="ploneun_sharingnotification"/>
 
 </configure>

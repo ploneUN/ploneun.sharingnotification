@@ -1,0 +1,20 @@
+<tal:root define="portal nocall:options/portal;
+                  dummy python:request.RESPONSE.setHeader('Content-Type', 'text/plain;; charset=%s' % options['charset']);
+                  user options/user;
+                  sharer options/sharer;"
+>From: "<tal:r replace="portal/email_from_name"/>" <tal:r replace="structure string:<${portal/email_from_address}>"/>
+To: "<tal:r replace="user/fullname"/>" <tal:r replace="structure string:<${user/email}>"/>
+Subject: <tal:r replace="sharer/fullname"/> has granted you permission(s) on an item on <tal:r replace="portal/Title"/>
+Precedence: bulk
+
+<tal:r replace="sharer/fullname"/> has granted you <tal:r content="python:', '.join(options['permissions'])"/> permission(s) to <tal:r replace="options/item_type"/>: <tal:r replace="context/Title"/>.
+
+Click the following link to view or edit the item:
+
+<tal:r replace="context/absolute_url"/>
+
+--
+
+This is a system generated message. Please do not reply.
+
+</tal:root>

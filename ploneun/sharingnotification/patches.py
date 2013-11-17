@@ -43,9 +43,11 @@ def _patch_role_settings_updated_event():
             # want to remove
             wanted_roles = (selected_roles | existing_roles) - to_remove
 
+            to_assign = [r for r in wanted_roles if (
+                r not in relevant_existing_roles)]
             user_roles[user_id] = {
                 'to_remove': to_remove,
-                'to_assign': wanted_roles,
+                'to_assign': to_assign,
                 'old_roles': relevant_existing_roles,
                 'new_roles': selected_roles
             }
